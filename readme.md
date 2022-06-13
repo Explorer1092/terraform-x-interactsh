@@ -31,7 +31,7 @@ module "interactsh" {
 #   version = "1.0.0"
     name_prefix = ""
     vswitch_id = ""
-    domain = "zzz.ms"
+    domain = ""
     acao-url = ""
     zerossl_key = ""
     dns_aliyun_access_key = var.aliyun_access_key
