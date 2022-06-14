@@ -92,7 +92,7 @@ resource "alicloud_eci_container_group" "interactsh-slave" {
 
   containers {
 
-    image             = "projectdiscovery/interactsh-server:latest"
+    image             = "htid/interactsh-server:latest"
     name              = "${var.name_prefix}interactsh-slave"
     image_pull_policy = "IfNotPresent"
 
@@ -233,10 +233,11 @@ module "dns" {
 
 module "zerossl_alicloud" {
   source  = "Explorer1092/zerossl_alicloud/x"
-  version = "1.0.4"
+  version = "1.0.5"
   aliyun_access_key = var.dns_aliyun_access_key
   aliyun_secret_key = var.dns_aliyun_secret_key
-  common_name = "*.${var.domain}"
+  common_name = var.domain
+  subject_alternative_names = ["*.${var.domain}"]
   zerossl_key = var.zerossl_key
 }
 
