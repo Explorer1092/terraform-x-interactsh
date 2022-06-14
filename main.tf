@@ -92,7 +92,7 @@ resource "alicloud_eci_container_group" "interactsh-slave" {
 
   containers {
 
-    image             = "htid/interactsh-server:latest"
+    image             = "htid/interactsh-server:v2.0.0"
     name              = "${var.name_prefix}interactsh-slave"
     image_pull_policy = "IfNotPresent"
 
