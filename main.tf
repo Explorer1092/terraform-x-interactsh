@@ -2,7 +2,7 @@ terraform {
   required_providers {
     alicloud = {
       source  = "hashicorp/alicloud"
-      version = "1.170.0"
+      version = ">= 1.170.0"
     }
     acme = {
       source  = "vancluever/acme"
@@ -92,7 +92,7 @@ resource "alicloud_eci_container_group" "interactsh-slave" {
 
   containers {
 
-    image             = "htid/interactsh-server:latest"
+    image             = "projectdiscovery/interactsh-server:latest"
     name              = "${var.name_prefix}interactsh-slave"
     image_pull_policy = "IfNotPresent"
 
