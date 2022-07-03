@@ -181,7 +181,7 @@ locals {
     entrypoint = <<EOF
 #!/bin/sh
 set -x
-IP=`wget  ip.zip.ms -O - 2>/dev/null`
+IP=`wget  http://100.100.100.200/latest/meta-data/eipv4 -O - 2>/dev/null`
 interactsh-server -domain ${var.domain} -wc -ip $IP -t ${random_id.token.hex} -se -cidl 4 -cidn 6 -acao-url ${var.acao-url} -cert /etc/ssl/certs/interactsh.crt -privkey /etc/ssl/private/interactsh.key
 EOF
 }
